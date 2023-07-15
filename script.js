@@ -48,6 +48,7 @@ const gameEngine = () => {
 
     // If snake have eaten the food, increment the score and regenerate the food
     if (snakeArray[0].x === food.x && snakeArray[0].y === food.y) {
+        foodSound.play()
         snakeArray.unshift({ x: snakeArray[0].x + direction.x, y: snakeArray[0].y + direction.y })
         food = {
             x: Math.floor(Math.random() * (17 - 2 + 1)) + 2,
