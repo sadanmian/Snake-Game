@@ -51,7 +51,6 @@ const gameEngine = () => {
         direction = { x: 0, y: 0 }
         alert("Game Over. Press any key to play again")
         snakeArray = [{ x: 13, y: 15 }]
-        // musicSound.play()
         score = 0;
         speed = 2;
     }
@@ -60,9 +59,15 @@ const gameEngine = () => {
     if (snakeArray[0].x === food.x && snakeArray[0].y === food.y) {
         foodSound.play()
         score++;
-        console.log(score);
-        scoreBox.innerHTML = "Score : " + score
         speed++;
+        // console.log(score);
+        // scoreBox.innerHTML = "Score : " + score
+        scoreBox.innerHTML = `Score : ${score}`
+        if (score > hiScoreVal) {
+            hiScoreVal = score
+            localStorage.setItem('hiscore', JSON.stringify(hiScoreVal))
+            highScoreBox.innerHTML = "HiScore : " + hiScoreVal
+        }
         snakeArray.unshift({ x: snakeArray[0].x + direction.x, y: snakeArray[0].y + direction.y })
         food = {
             x: Math.floor(Math.random() * (17 - 2 + 1)) + 2,
@@ -101,6 +106,17 @@ const gameEngine = () => {
 }
 
 // Main Logic
+
+// Login for High Score by using local Storage
+let hiscore = localStorage.getItem("hiscore")
+if (hiscore === null) {
+    hiScoreVal = 0;
+    localStorage.setItem("hiscore", JSON.stringify(hiScoreVal))
+}
+else {
+    hiScoreVal = JSON.parse(hiscore)
+    highScoreBox.innerHTML = `HiScore : ${hiscore}`
+}
 
 window.requestAnimationFrame(main)
 window.addEventListener('keydown', (e) => {
