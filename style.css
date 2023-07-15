@@ -25,14 +25,14 @@
 }
 
 .head {
-    background-color: red;
+    background-color: black;
 
 }
 
 .snake {
-    background-color: purple;
+    background-color: gray;
 }
 
 .food {
-    background-color: yellow;
+    background-color: green;
 }
