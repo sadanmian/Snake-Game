@@ -30,8 +30,17 @@ const main = (current_time) => {
     gameEngine()
 }
 
-function isCollide(sarr) {
-    return false;
+function isCollide(snake) {
+    // if you collide with yourself
+    for (let i = 1; i < snakeArray.length; i++) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+            return true
+        }
+    }
+    // Collision with wall
+    if (snake[0].x >= 18 || snake[0].x <= 0 || snake[0].y >= 18 || snake[0].y <= 0) {
+        return true
+    }
 }
 
 const gameEngine = () => {
@@ -42,7 +51,7 @@ const gameEngine = () => {
         direction = { x: 0, y: 0 }
         alert("Game Over. Press any key to play again")
         snakeArray = [{ x: 13, y: 15 }]
-        musicSound.play()
+        // musicSound.play()
         score = 0;
     }
 
