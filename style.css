@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +15,16 @@
     align-items: center;
     justify-content: center;
 }
+
+#scoreBox {
+    position: absolute;
+    top: 9px;
+    right: 200px;
+    font-size: 39px;
+    font-weight: bold;
+    font-family: 'Pangolin', cursive;
+}
+
 
 #board {
     background: linear-gradient(rgb(204, 250, 204), rgb(177, 177, 85));
