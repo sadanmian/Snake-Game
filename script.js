@@ -55,6 +55,13 @@ const gameEngine = () => {
         }
     }
 
+    // Moving the Snake
+    for (let i = snakeArray.length - 2; i >= 0; i--) {
+        snakeArray[i + 1] = { ...snakeArray[i] }
+    }
+    snakeArray[0].x = snakeArray[0].x + direction.x
+    snakeArray[0].y = snakeArray[0].y + direction.y
+
     // Part 2: Display the Snake & Food
     // Display the Snake
     board.innerHTML = ""
