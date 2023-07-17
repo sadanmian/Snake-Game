@@ -6,7 +6,8 @@
 }
 
 .body {
-    background: url('/img/bg.jpg');
+    /* background: url('/img/bg.jpg'); */
+    background-color: rgb(170, 249, 170);
     min-height: 100vh;
     /* min-width: 100vw; */
     background-size: 100vw 100vh;
